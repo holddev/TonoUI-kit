@@ -21,7 +21,6 @@ export const Button = ({ className, children, variant = "default", ...rest }: Pr
       <button
         className={cn(
           buttonVariants.slideFill,
-          className
         )}
         {...rest}
       >
@@ -33,7 +32,7 @@ export const Button = ({ className, children, variant = "default", ...rest }: Pr
           }}
         />
 
-        <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+        <span className={cn("relative z-10 group-hover:text-white transition-colors duration-300", className)}>
           {children}
         </span>
       </button>
@@ -45,7 +44,6 @@ export const Button = ({ className, children, variant = "default", ...rest }: Pr
       <button
         className={cn(
           buttonVariants.splitSlide,
-          className
         )}
         {...rest}
       >
@@ -64,7 +62,7 @@ export const Button = ({ className, children, variant = "default", ...rest }: Pr
           }}
         />
 
-        <span className="relative z-10 group-hover:text-white transition-colors duration-700">
+        <span className={cn("relative z-10 group-hover:text-white transition-colors duration-700", className)}>
           {children}
         </span>
       </button>
