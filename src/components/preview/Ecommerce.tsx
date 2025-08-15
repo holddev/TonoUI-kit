@@ -36,7 +36,7 @@ export const Ecommerce = ({ colors }: Props) => {
       >
         <h1 className="text-2xl font-bold select-none cursor-default">BuyJacket's</h1>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 sm:gap-5">
           <button
             style={{ color: colors.foreground }}
             className="relative p-1"
@@ -144,12 +144,12 @@ export const Ecommerce = ({ colors }: Props) => {
           style={{ backgroundColor: colors.muted }}
         >
           {/* Navegación de categorías */}
-          <nav className="flex items-center gap-6 text-sm font-semibold text-gray-700">
+          <nav className="flex items-center gap-2 sm:gap-4 md:gap-6 text-sm font-semibold text-gray-700">
             {["All", "Men", "Women"].map((cat, i) => (
               <button
                 key={cat}
                 className={`relative
-          px-3 py-1 rounded-md transition
+          px-1 sm:px-3 py-1 rounded-md transition
           ${i === 2
                     ? "bg-primary text-white"
                     : "hover:bg-primary hover:text-white"
@@ -168,7 +168,7 @@ export const Ecommerce = ({ colors }: Props) => {
           </nav>
 
           {/* Botones de acción */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <button
               style={{ backgroundColor: colors.primary }}
               className="flex items-center gap-2 px-4 py-2 rounded-md text-white font-semibold hover:brightness-90 transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary"
@@ -195,7 +195,7 @@ export const Ecommerce = ({ colors }: Props) => {
           >
             {/* Imagen de fondo */}
             <img
-              src="/woman-2593366_1280.jpg"
+              src="/girl-with-glasses.webp"
               alt="Promotion"
               className="absolute inset-0 w-full h-full object-cover z-0"
             />
@@ -224,8 +224,8 @@ export const Ecommerce = ({ colors }: Props) => {
           >
             {/* Imagen de fondo */}
             <img
-              src="sandal.webp"
-              alt="Shoes"
+              src="/sandal.webp"
+              alt="Sandal Image"
               className="absolute inset-0 w-full h-full object-cover z-0"
             />
 
@@ -255,7 +255,7 @@ export const Ecommerce = ({ colors }: Props) => {
           >
             {/* Imagen de fondo */}
             <img
-              src="./OIP.webp"
+              src="/girl-at-sunset.webp"
               alt="Winter's Weekend"
               className="absolute inset-0 w-full h-full object-cover z-0"
             />
@@ -286,7 +286,7 @@ export const Ecommerce = ({ colors }: Props) => {
 
 
 
-          {/* Usuario favorito (col-span-1 en md) */}
+          {/* Ver ofertas (col-span-1 en md) */}
           <div
             className="h-[150px] rounded-lg col-span-2 sm:col-span-1 row-span-1 md:col-span-2 flex flex-col items-center justify-center p-6 shadow-md"
             style={{ backgroundColor: colors.muted, boxShadow: `0 4px 12px ${colors.muted}` }}
@@ -317,7 +317,7 @@ export const Ecommerce = ({ colors }: Props) => {
             >
               <div className="relative">
                 <img
-                  src={`/product${i + 1}.jpg`}
+                  src={`/product${i + 1}.webp`}
                   alt="Product"
                   className="w-full h-48 object-cover"
                 />
