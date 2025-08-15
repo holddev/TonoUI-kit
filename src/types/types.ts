@@ -1,3 +1,5 @@
+export type Themes = "light" | "dark"
+
 export type PaletteColor = {
   name: string
   hex: string
