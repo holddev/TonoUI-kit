@@ -1,8 +1,8 @@
-import { useState } from "react"
-import type { Palette, PaletteColor } from "../types/types"
+import { useEffect, useState } from "react"
+import type { Palette, PaletteColor, Themes } from "../types/types"
 import { generatePalette, hexToHsl, hexToRgba } from "../utils/utils"
 
-export function usePaletteColors(initialType = "random") {
+export function usePaletteColors(initialType = "random", theme: Themes = 'light') {
   const [paletteType, setPaletteType] = useState(initialType)
   const [colors, setColors] = useState<PaletteColor[]>(() =>
     buildPalette(generatePalette(initialType))
@@ -17,8 +17,12 @@ export function usePaletteColors(initialType = "random") {
     }))
   }
 
+  useEffect(() => {
+    setColors(buildPalette(generatePalette(paletteType, theme)))
+  }, [paletteType, theme])
+
   function regenerate() {
-    setColors(buildPalette(generatePalette(paletteType)))
+    setColors(buildPalette(generatePalette(paletteType, theme)))
   }
 
   return { colors, paletteType, setPaletteType, regenerate }
