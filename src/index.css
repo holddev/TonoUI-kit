@@ -1,2 +1,41 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root{
+  --background:#fefefe;
+  --foreground:#3e3936;
+  --muted: #5c5754;
+  --primary:#ff6900;
+}
+
+.dark {  
+  --background: #262626;
+  --foreground:#faeae1;
+  --muted: #9e958d;
+  --primary:#e05e00;
+}
+
+@theme{
+  --color-background:var(--background);
+  --color-foreground:var(--foreground);
+  --color-muted:var(--muted);
+  --color-primary:var(--primary);
+
+  --animate-float: float 3s ease-in-out infinite;  
+}
+
+@keyframes float{
+	0%, 100% { transform: translateY(0px) }
+  50% { transform: translateY(-20px) }				
+}
+
+html{
+	scrollbar-color:  var(--primary) var(--foreground);
+	scrollbar-width: thin;
+}
+
+body{
+  transition: all .3s ease-in-out;
+  background-color: var(--background);  
+}
+
