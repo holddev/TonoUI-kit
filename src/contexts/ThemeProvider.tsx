@@ -14,11 +14,11 @@ export const ThemeProvider = ({ children }: Props) => {
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark"
     setTheme(newTheme)
-    document.body.classList.remove(theme);
+    document.documentElement.classList.remove(theme);
   }
 
   useEffect(() => {
-    document.body.classList.add(theme);
+    document.documentElement.classList.add(theme);
   }, [theme])
 
 
