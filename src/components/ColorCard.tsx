@@ -51,7 +51,7 @@ export const ColorCard = ({ hex, hsl, rgba, name }: Props) => {
             <span>{hsl}</span>
           </div>
         </div>
-        <span className="w-full bg-orange-500 text-white text-sm p-1">
+        <span className="w-full bg-primary text-white/80 text-sm p-1">
           {name}
         </span>
       </button>
