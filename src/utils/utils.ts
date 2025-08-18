@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import type { Palette } from "../types/types"
+import type { Palette, Themes } from "../types/types"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -117,6 +117,17 @@ export const hexToHsl = (hex: string): string => {
   return `hsl(${hue}, ${sPercent}%, ${lPercent}%)`;
 }
 
+// funcion para obtener el fondo y color de texto dependiendo el tema
+const getBaseColors = (h: number, mode: 'light' | 'dark') => {
+  const bgLightness = mode === 'light' ? 95 : 10
+  const fgLightness = mode === 'light' ? 15 : 90
+  return {
+    background: hslToHex(h, 10, bgLightness),
+    foreground: hslToHex(h, 15, fgLightness)
+  }
+}
+
+
 
 
 
@@ -130,11 +141,10 @@ const randomHSL = (): [number, number, number] => {
 }
 
 // Paleta aleatoria
-export const generateRandomPalette = (): Palette => {
+export const generateRandomPalette = (mode: Themes): Palette => {
   const [h, s, l] = randomHSL()
   return {
-    background: hslToHex(h, 10, 95),
-    foreground: hslToHex(h, 15, 15),
+    ...getBaseColors(h, mode),
     primary: hslToHex(h, s, l),
     secondary: hslToHex((h + 40) % 360, s, l),
     accent: hslToHex((h + 120) % 360, s, l),
@@ -143,11 +153,10 @@ export const generateRandomPalette = (): Palette => {
 }
 
 // Paleta complementaria
-export const generateComplementaryPalette = (): Palette => {
+export const generateComplementaryPalette = (mode: Themes): Palette => {
   const [h, s, l] = randomHSL()
   return {
-    background: hslToHex(h, 10, 95),
-    foreground: hslToHex(h, 15, 15),
+    ...getBaseColors(h, mode),
     primary: hslToHex(h, s, l),
     secondary: hslToHex((h + 180) % 360, s, l),
     accent: hslToHex((h + 180) % 360, s - 10, l + 10),
@@ -156,11 +165,10 @@ export const generateComplementaryPalette = (): Palette => {
 }
 
 // Paleta análoga
-export const generateAnalogousPalette = (): Palette => {
+export const generateAnalogousPalette = (mode: Themes): Palette => {
   const [h, s, l] = randomHSL()
   return {
-    background: hslToHex(h, 10, 95),
-    foreground: hslToHex(h, 15, 15),
+    ...getBaseColors(h, mode),
     primary: hslToHex(h, s, l),
     secondary: hslToHex((h + 30) % 360, s, l),
     accent: hslToHex((h - 30 + 360) % 360, s, l),
@@ -169,11 +177,10 @@ export const generateAnalogousPalette = (): Palette => {
 }
 
 // Paleta triádica
-export const generateTriadicPalette = (): Palette => {
+export const generateTriadicPalette = (mode: Themes): Palette => {
   const [h, s, l] = randomHSL()
   return {
-    background: hslToHex(h, 10, 95),
-    foreground: hslToHex(h, 15, 15),
+    ...getBaseColors(h, mode),
     primary: hslToHex(h, s, l),
     secondary: hslToHex((h + 120) % 360, s, l),
     accent: hslToHex((h + 240) % 360, s, l),
@@ -182,11 +189,10 @@ export const generateTriadicPalette = (): Palette => {
 }
 
 // Paleta monocromática
-export const generateMonochromaticPalette = (): Palette => {
+export const generateMonochromaticPalette = (mode: Themes): Palette => {
   const [h, s, l] = randomHSL()
   return {
-    background: hslToHex(h, s - 30, 95),
-    foreground: hslToHex(h, s - 30, 15),
+    ...getBaseColors(h, mode),
     primary: hslToHex(h, s, l),
     secondary: hslToHex(h, s - 10, l + 20),
     accent: hslToHex(h, s + 10, l - 20),
@@ -195,20 +201,20 @@ export const generateMonochromaticPalette = (): Palette => {
 }
 
 // Función principal para generar paleta según el tipo
-export const generatePalette = (type: string): Palette => {
+export const generatePalette = (type: string, mode: Themes = 'light'): Palette => {
   switch (type) {
     case 'random':
-      return generateRandomPalette()
+      return generateRandomPalette(mode)
     case 'complementary':
-      return generateComplementaryPalette()
+      return generateComplementaryPalette(mode)
     case 'analogous':
-      return generateAnalogousPalette()
+      return generateAnalogousPalette(mode)
     case 'triadic':
-      return generateTriadicPalette()
+      return generateTriadicPalette(mode)
     case 'monochromatic':
-      return generateMonochromaticPalette()
+      return generateMonochromaticPalette(mode)
     default:
-      return generateRandomPalette()
+      return generateRandomPalette(mode)
   }
 }
 
