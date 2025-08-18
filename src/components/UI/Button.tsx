@@ -1,11 +1,11 @@
 import { cn } from "../../utils/utils"
 
 const buttonVariants = {
-  default: "bg-orange-500 text-white hover:bg-orange-600",
-  outline: "border border-orange-500 text-orange-500 hover:bg-orange-50",
+  default: "bg-primary text-white hover:bg-orange-600",
+  outline: "border border-primary text-primary hover:bg-primary/20",
   gradient: "bg-gradient-to-r from-orange-400 to-pink-500 text-white hover:brightness-110",
-  slideFill: "relative px-2 py-1 rounded-md border border-orange-500 text-orange-500 overflow-hidden group cursor-pointer shadow-sm hover:shadow-md transition",
-  splitSlide: "relative px-2 py-1 rounded-md border border-orange-500 text-orange-500 overflow-hidden group cursor-pointer shadow-sm hover:shadow-md transition"
+  slideFill: "relative px-2 py-1 rounded-md border border-primary text-primary overflow-hidden group cursor-pointer shadow-sm hover:shadow-md transition",
+  splitSlide: "relative px-2 py-1 rounded-md border border-primary text-primary overflow-hidden group cursor-pointer shadow-sm hover:shadow-md transition"
 }
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
@@ -26,7 +26,7 @@ export const Button = ({ className, children, variant = "default", ...rest }: Pr
       >
         {/* Fondo diagonal animado */}
         <span
-          className="w-[140%] absolute inset-0 bg-orange-500 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"
+          className="w-[140%] absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"
           style={{
             clipPath: 'polygon(0 0, 70% 0, 100% 100%, 0% 100%)',
           }}
@@ -49,14 +49,14 @@ export const Button = ({ className, children, variant = "default", ...rest }: Pr
       >
         {/* Fondo diagonal izquierda animado */}
         <span
-          className="w-[60%] h-full absolute top-0 left-0 bg-orange-500 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0"
+          className="w-[60%] h-full absolute top-0 left-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0"
           style={{
             clipPath: 'polygon(0 0, 70% 0, 100% 100%, 0% 100%)',
           }}
         />
         {/* Fondo diagonal izquierda animado */}
         <span
-          className="w-[60%] h-full absolute top-0 right-0 bg-orange-500 translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0"
+          className="w-[60%] h-full absolute top-0 right-0 bg-primary translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0"
           style={{
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 30% 100%)',
           }}
