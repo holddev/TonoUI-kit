@@ -12,19 +12,19 @@ export const LandingPage = ({ colors }: Props) => {
       {/* Fluid background shapes */}
       <div className="absolute inset-0">
         <div
-          className="absolute top-0 left-0 size-52 sm:size-72 md:size-96 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+          className="absolute top-0 left-0 size-52 sm:size-72 md:size-96 rounded-full mix-blend-multiply dark:mix-blend-screen  filter blur-xl opacity-70 animate-float"
           style={{ background: `linear-gradient(to top, ${colors.primary}, ${colors.primary})` }}
         />
         <div
-          className="absolute top-0 right-0 size-44 sm:size-64 md:size-80 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+          className="absolute top-0 right-0 size-44 sm:size-64 md:size-80 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-float"
           style={{ background: `linear-gradient(to top, ${colors.secondary}, ${colors.secondary})`, animationDelay: '0.2s' }}
         />
         <div
-          className="absolute -bottom-8 left-20 size-40 sm:size-60 md:size-72 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float"
+          className="absolute -bottom-8 left-20 size-40 sm:size-60 md:size-72 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-60 animate-float"
           style={{ background: `linear-gradient(to top, ${colors.accent}, ${colors.accent})`, animationDelay: '0.4s' }}
         />
         <div
-          className="absolute bottom-20 right-20 size-32 sm:size-56 md:size-64 bg-accent/30 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float"
+          className="absolute bottom-20 right-20 size-32 sm:size-56 md:size-64 bg-accent/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-50 animate-float"
           style={{ background: colors.accent, animationDelay: '0.6s' }}
         />
 
